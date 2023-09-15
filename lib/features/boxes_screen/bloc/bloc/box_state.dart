@@ -5,7 +5,6 @@ enum BoxSatus {
   loading,
   success,
   failure,
-  returned,
 }
 
 extension BoxSatusX on BoxSatus {
@@ -13,36 +12,36 @@ extension BoxSatusX on BoxSatus {
   bool get isLoading => this == BoxSatus.loading;
   bool get isSuccess => this == BoxSatus.success;
   bool get isFailure => this == BoxSatus.failure;
-  bool get isReturned => this == BoxSatus.returned;
 }
 
 class BoxState extends Equatable {
   final BoxSatus boxSatus;
-  final DishModel? dish;
-  final int? boxNumber;
+  final List<DishModel>? dishes;
   final String? errorMessage;
 
   const BoxState({
     required this.boxSatus,
-    this.dish,
-    this.boxNumber,
+    this.dishes,
     this.errorMessage,
   });
 
   BoxState copyWith({
     required boxSatus,
-    DishModel? dish,
+    List<DishModel>? dishes,
     int? boxNumber,
     String? errorMessage,
   }) {
     return BoxState(
       boxSatus: boxSatus,
-      dish: dish ?? dish,
-      boxNumber: boxNumber ?? boxNumber,
+      dishes: dishes ?? dishes,
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 
   @override
-  List<Object?> get props => [boxSatus, dish, errorMessage];
+  List<Object?> get props => [
+        boxSatus,
+        dishes,
+        errorMessage,
+      ];
 }

@@ -8,4 +8,8 @@ class DishModel {
     required this.dishName,
     required this.imageUrl,
   });
+  @override
+  String toString() {
+    return 'orderId:$orderId, dishName: $dishName, imageUrl: $imageUrl';
+  }
 }

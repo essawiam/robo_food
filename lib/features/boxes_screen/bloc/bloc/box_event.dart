@@ -3,10 +3,7 @@ part of 'box_bloc.dart';
 @immutable
 abstract class BoxEvent {}
 
-class DishFetched extends BoxEvent {
-  final int boxNumber;
-  DishFetched({required this.boxNumber});
-}
+class DishesFetched extends BoxEvent {}
 
 class DishReturned extends BoxEvent {
   final DishModel dish;
