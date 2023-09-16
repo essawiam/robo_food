@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:robo_food/features/boxes_screen/bloc/bloc/box_bloc.dart';
 import 'package:robo_food/features/boxes_screen/presentation/pages/boxes_page.dart';
 import 'core/constants/titles.dart';
 import 'core/observers/app_bloc_observer.dart';
+import 'features/boxes_screen/bloc/box_bloc/box_bloc.dart';
 import 'injection_container.dart' as di;
 import 'package:flutter_bloc/flutter_bloc.dart';
 

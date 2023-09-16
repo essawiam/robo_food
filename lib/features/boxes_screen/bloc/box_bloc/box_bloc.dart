@@ -19,8 +19,9 @@ class BoxBloc extends Bloc<BoxEvent, BoxState> {
           errorMessage: noError,
         )) {
     on<DishesFetched>(_dishesFetched);
-    on<DishReturned>(_dishReturned);
+    on<BoxesReset>(_boxesReset);
   }
+
   FutureOr<void> _dishesFetched(DishesFetched event, Emitter<BoxState> emit) {
     emit(state.copyWith(boxSatus: BoxSatus.loading));
     final result = boxRepo.getDishes();
@@ -50,8 +51,10 @@ class BoxBloc extends Bloc<BoxEvent, BoxState> {
     }
   }
 
-  FutureOr<void> _dishReturned(DishReturned event, Emitter<BoxState> emit) {
-    emit(state.copyWith(boxSatus: BoxSatus.loading));
-    boxRepo.addReturnedDish(event.dish);
+  FutureOr<void> _boxesReset(BoxesReset event, Emitter<BoxState> emit) {
+    emit(state.copyWith(
+      boxSatus: BoxSatus.success,
+      dishes: [],
+    ));
   }
 }

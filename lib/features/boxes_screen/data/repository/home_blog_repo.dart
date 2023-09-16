@@ -14,12 +14,4 @@ class BoxRepo {
   ({Failure? error, List<DishModel>? success}) getDishes() {
     return localDataSource.getDishes();
   }
-
-  ({Failure? error, DishModel? success}) getDish() {
-    return localDataSource.getDish();
-  }
-
-  void addReturnedDish(DishModel dish) {
-    localDataSource.addReturnedDish(dish);
-  }
 }

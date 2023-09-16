@@ -1,9 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:robo_food/core/constants/errors.dart';
 
 import '../../../../core/constants/titles.dart';
-import '../../bloc/bloc/box_bloc.dart';
+import '../../bloc/box_bloc/box_bloc.dart';
 import '../widgets/box_widget.dart';
 
 class BoxesPage extends StatefulWidget {
@@ -14,9 +16,16 @@ class BoxesPage extends StatefulWidget {
 }
 
 class _BoxesPageState extends State<BoxesPage> {
+  Timer? timer;
   @override
   void initState() {
     super.initState();
+    // Call for a new data each 25 seconds.
+    timer = Timer.periodic(
+      const Duration(seconds: 25),
+      (Timer t) => context.read<BoxBloc>().add(DishesFetched()),
+    );
+
     context.read<BoxBloc>().add(DishesFetched());
   }
 
@@ -114,5 +123,11 @@ class _BoxesPageState extends State<BoxesPage> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    timer!.cancel();
   }
 }

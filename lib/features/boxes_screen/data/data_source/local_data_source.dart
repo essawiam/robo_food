@@ -8,11 +8,8 @@ import '../../../../core/error/failure.dart';
 
 class LocalDataSource {
   late Queue<DishModel> readyDishes;
-  late Queue<DishModel> returnedDishes;
-
   LocalDataSource() {
     readyDishes = Queue<DishModel>();
-    returnedDishes = Queue<DishModel>();
     getReadyDishes();
   }
   void getReadyDishes() {
@@ -24,9 +21,6 @@ class LocalDataSource {
       if (readyDishes.isNotEmpty) {
         List<DishModel> readyDishItems = readyDishes.getAndRemoveItems();
         return (error: null, success: readyDishItems);
-      } else if (returnedDishes.isNotEmpty) {
-        List<DishModel> returnedDishItems = returnedDishes.getAndRemoveItems();
-        return (error: null, success: returnedDishItems);
       } else {
         return (error: null, success: []);
       }
@@ -38,28 +32,5 @@ class LocalDataSource {
         success: null
       );
     }
-  }
-
-  ({Failure? error, DishModel? success}) getDish() {
-    try {
-      if (readyDishes.isNotEmpty) {
-        return (error: null, success: readyDishes.removeFirst());
-      } else if (returnedDishes.isNotEmpty) {
-        return (error: null, success: returnedDishes.removeFirst());
-      } else {
-        return (error: null, success: null);
-      }
-    } catch (e) {
-      return (
-        error: Failure(
-          errorMessage: e.toString(),
-        ),
-        success: null
-      );
-    }
-  }
-
-  void addReturnedDish(DishModel dish) {
-    returnedDishes.add(dish);
   }
 }
