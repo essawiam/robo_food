@@ -24,6 +24,15 @@ class BoxBloc extends Bloc<BoxEvent, BoxState> {
   FutureOr<void> _dishesFetched(DishesFetched event, Emitter<BoxState> emit) {
     emit(state.copyWith(boxSatus: BoxSatus.loading));
     final result = boxRepo.getDishes();
+    if (result.success == []) {
+      emit(
+        state.copyWith(
+          boxSatus: BoxSatus.success,
+          dishes: [],
+          errorMessage: noError,
+        ),
+      );
+    }
     if (result.error == null) {
       emit(
         state.copyWith(

@@ -28,7 +28,7 @@ class LocalDataSource {
         List<DishModel> returnedDishItems = returnedDishes.getAndRemoveItems();
         return (error: null, success: returnedDishItems);
       } else {
-        return (error: null, success: null);
+        return (error: null, success: []);
       }
     } catch (e) {
       return (

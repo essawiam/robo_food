@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:robo_food/core/constants/errors.dart';
 
 import '../../../../core/constants/titles.dart';
 import '../../bloc/bloc/box_bloc.dart';
@@ -33,73 +34,83 @@ class _BoxesPageState extends State<BoxesPage> {
       ),
       body: BlocBuilder<BoxBloc, BoxState>(
         builder: (context, state) {
-          return Container(
-            color: Colors.grey.shade200,
-            child: Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: 6,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: BoxWidget(
-                              numberBox: index + 1,
-                              dishModel: state.dishes![index],
+          if (state.boxSatus.isSuccess) {
+            return Container(
+              color: Colors.grey.shade200,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: 6,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const SizedBox(
+                              width: 5,
                             ),
-                          ),
-                          index == 2
-                              ? const SizedBox(
-                                  width: 70,
-                                )
-                              : const SizedBox(
-                                  width: 2,
-                                )
-                        ],
-                      );
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: 6,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: BoxWidget(
-                              numberBox: index + 7,
-                              dishModel: state.dishes![index + 6],
+                            Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: BoxWidget(
+                                numberBox: index + 1,
+                                dishModel: index + 1 <= state.dishes!.length
+                                    ? state.dishes![index]
+                                    : null,
+                              ),
                             ),
-                          ),
-                          index == 2
-                              ? const SizedBox(
-                                  width: 70,
-                                )
-                              : const SizedBox(
-                                  width: 2,
-                                )
-                        ],
-                      );
-                    },
+                            index == 2
+                                ? const SizedBox(
+                                    width: 70,
+                                  )
+                                : const SizedBox(
+                                    width: 2,
+                                  )
+                          ],
+                        );
+                      },
+                    ),
                   ),
-                ),
-              ],
-            ),
-          );
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: 6,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: BoxWidget(
+                                numberBox: index + 7,
+                                dishModel: (index + 7) <= state.dishes!.length
+                                    ? state.dishes![index + 6]
+                                    : null,
+                              ),
+                            ),
+                            index == 2
+                                ? const SizedBox(
+                                    width: 70,
+                                  )
+                                : const SizedBox(
+                                    width: 2,
+                                  )
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }
+          if (state.boxSatus.isFailure) {
+            return const Center(child: Text(anError));
+          }
+          return Container();
         },
       ),
     );

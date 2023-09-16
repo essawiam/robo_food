@@ -38,17 +38,19 @@ class _BoxWidgetState extends State<BoxWidget> {
           remainingSeconds--;
         } else {
           timer.cancel();
-          _handleTimerEnd();
+          handleTimerEnd();
         }
       });
     });
   }
 
-  void _handleTimerEnd() {
+  void handleTimerEnd() {
     setState(() {
       // Here if the isDishPickedUp == false after we finish this.
       // Will retunred it back.
       // and then ask for a new othor orders.
+
+      isDishPickedUp = true;
     });
   }
 
@@ -83,8 +85,8 @@ class _BoxWidgetState extends State<BoxWidget> {
                           borderRadius: BorderRadius.circular(30.0),
                           child: Image.asset(
                             widget.dishModel!.imageUrl,
-                            height: 60, // Adjust the height as needed
-                            width: 60, // Adjust the width as needed
+                            height: 60,
+                            width: 60,
                             fit: BoxFit.cover,
                           ),
                         ),
