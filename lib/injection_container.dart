@@ -13,5 +13,6 @@ Future<void> init() async {
   );
   // repo
   sl.registerLazySingleton(() => BoxRepo(localDataSource: sl()));
+  // data source
   sl.registerLazySingleton(() => LocalDataSource());
 }

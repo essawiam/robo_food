@@ -49,7 +49,7 @@ class _BoxWidgetState extends State<BoxWidget> {
       setState(() {
         if (remainingSeconds > 0) {
           remainingSeconds--;
-          // Check if the remaining time is 10 seconds or less
+          // Check if the remaining time is 10 seconds or less show red clock.
           isRedIcon = remainingSeconds <= 10;
         } else {
           timer.cancel();
@@ -163,7 +163,6 @@ class _BoxWidgetState extends State<BoxWidget> {
 
   @override
   void dispose() {
-    // Cancel the timer when the widget is disposed
     timer.cancel();
     super.dispose();
   }

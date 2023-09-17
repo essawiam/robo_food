@@ -4,5 +4,3 @@ part of 'box_bloc.dart';
 abstract class BoxEvent {}
 
 class DishesFetched extends BoxEvent {}
-
-class BoxesReset extends BoxEvent {}

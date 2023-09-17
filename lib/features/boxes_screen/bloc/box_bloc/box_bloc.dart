@@ -19,21 +19,11 @@ class BoxBloc extends Bloc<BoxEvent, BoxState> {
           errorMessage: noError,
         )) {
     on<DishesFetched>(_dishesFetched);
-    on<BoxesReset>(_boxesReset);
   }
 
   FutureOr<void> _dishesFetched(DishesFetched event, Emitter<BoxState> emit) {
     emit(state.copyWith(boxSatus: BoxSatus.loading));
     final result = boxRepo.getDishes();
-    if (result.success == []) {
-      emit(
-        state.copyWith(
-          boxSatus: BoxSatus.success,
-          dishes: [],
-          errorMessage: noError,
-        ),
-      );
-    }
     if (result.error == null) {
       emit(
         state.copyWith(
@@ -49,12 +39,5 @@ class BoxBloc extends Bloc<BoxEvent, BoxState> {
         errorMessage: result.error.toString(),
       ));
     }
-  }
-
-  FutureOr<void> _boxesReset(BoxesReset event, Emitter<BoxState> emit) {
-    emit(state.copyWith(
-      boxSatus: BoxSatus.success,
-      dishes: [],
-    ));
   }
 }
