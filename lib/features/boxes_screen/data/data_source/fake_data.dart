@@ -91,4 +91,59 @@ List<DishModel> fakeData = [
     dishName: 'Lobster Bisque',
     imageUrl: 'assets/images/LobsterBisque.JPG',
   ),
+  DishModel(
+    orderId: 10,
+    dishName: 'Chicken Tikka Masala',
+    imageUrl: 'assets/images/ChickenTikkaMasala.JPG',
+  ),
+  DishModel(
+    orderId: 11,
+    dishName: 'Falafel Wrap',
+    imageUrl: 'assets/images/FalafelWrap.JPG',
+  ),
+  DishModel(
+    orderId: 12,
+    dishName: 'Lobster Bisque',
+    imageUrl: 'assets/images/LobsterBisque.JPG',
+  ),
+  DishModel(
+    orderId: 13,
+    dishName: 'Beef Bulgogi',
+    imageUrl: 'assets/images/BeefBulgogi.JPG',
+  ),
+  DishModel(
+    orderId: 14,
+    dishName: 'Beef Stroganoff',
+    imageUrl: 'assets/images/BeefStroganoff.JPG',
+  ),
+  DishModel(
+    orderId: 15,
+    dishName: 'Caesar Salad',
+    imageUrl: 'assets/images/CaesarSalad.JPG',
+  ),
+  DishModel(
+    orderId: 16,
+    dishName: 'Chicken Tikka Masala',
+    imageUrl: 'assets/images/ChickenTikkaMasala.JPG',
+  ),
+  DishModel(
+    orderId: 17,
+    dishName: 'Falafel Wrap',
+    imageUrl: 'assets/images/FalafelWrap.JPG',
+  ),
+  DishModel(
+    orderId: 18,
+    dishName: 'Lobster Bisque',
+    imageUrl: 'assets/images/LobsterBisque.JPG',
+  ),
+  DishModel(
+    orderId: 19,
+    dishName: 'Lobster Bisque',
+    imageUrl: 'assets/images/LobsterBisque.JPG',
+  ),
+  DishModel(
+    orderId: 20,
+    dishName: 'Lobster Bisque',
+    imageUrl: 'assets/images/LobsterBisque.JPG',
+  ),
 ];
