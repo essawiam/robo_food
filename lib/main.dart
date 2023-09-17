@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:robo_food/features/boxes_screen/presentation/pages/boxes_page.dart';
 import 'core/constants/titles.dart';
 import 'core/observers/app_bloc_observer.dart';
@@ -20,12 +21,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: roboName,
-      home: BlocProvider(
-        create: (context) => sl<BoxBloc>(),
-        child: const BoxesPage(),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: roboName,
+        home: BlocProvider(
+          create: (context) => sl<BoxBloc>(),
+          child: const BoxesPage(),
+        ),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:robo_food/core/constants/errors.dart';
 
 import '../../../../core/constants/titles.dart';
@@ -56,8 +57,8 @@ class _BoxesPageState extends State<BoxesPage> {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const SizedBox(
-                              width: 5,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -69,11 +70,11 @@ class _BoxesPageState extends State<BoxesPage> {
                               ),
                             ),
                             index == 2
-                                ? const SizedBox(
-                                    width: 70,
+                                ? SizedBox(
+                                    width: 17.w,
                                   )
-                                : const SizedBox(
-                                    width: 2,
+                                : SizedBox(
+                                    width: 2.w,
                                   )
                           ],
                         );
@@ -88,8 +89,8 @@ class _BoxesPageState extends State<BoxesPage> {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const SizedBox(
-                              width: 5,
+                            SizedBox(
+                              width: 1.w,
                             ),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -101,11 +102,11 @@ class _BoxesPageState extends State<BoxesPage> {
                               ),
                             ),
                             index == 2
-                                ? const SizedBox(
-                                    width: 70,
+                                ? SizedBox(
+                                    width: 17.w,
                                   )
-                                : const SizedBox(
-                                    width: 2,
+                                : SizedBox(
+                                    width: 2.w,
                                   )
                           ],
                         );

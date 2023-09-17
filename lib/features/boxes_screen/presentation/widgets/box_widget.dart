@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:robo_food/core/constants/titles.dart';
 import 'package:robo_food/features/boxes_screen/data/models/dish_model.dart';
 
@@ -68,17 +69,17 @@ class _BoxWidgetState extends State<BoxWidget> {
               });
             },
             child: Container(
-              width: 185,
-              height: 150,
+              width: 52.w,
+              height: 150.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 border: Border.all(
-                  width: 10.0,
+                  width: 3.w,
                   color: Colors.black26,
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(7.0),
                 child: Animate(
                   effects: const [FadeEffect(), SlideEffect()],
                   child: Column(
@@ -91,8 +92,8 @@ class _BoxWidgetState extends State<BoxWidget> {
                             borderRadius: BorderRadius.circular(30.0),
                             child: Image.asset(
                               widget.dishModel!.imageUrl,
-                              height: 60,
-                              width: 60,
+                              height: 48.h,
+                              width: 15.w,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -101,16 +102,16 @@ class _BoxWidgetState extends State<BoxWidget> {
                             children: [
                               Text(
                                 '$boxTitle : ${widget.numberBox.toString()}',
-                                style: const TextStyle(
-                                  fontSize: 18.0,
+                                style: TextStyle(
+                                  fontSize: 4.sp,
                                   color: Colors.black,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               Text(
                                 '$orderId : ${widget.dishModel!.orderId.toString()}',
-                                style: const TextStyle(
-                                  fontSize: 18.0,
+                                style: TextStyle(
+                                  fontSize: 4.0.sp,
                                   color: Colors.black,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -119,8 +120,8 @@ class _BoxWidgetState extends State<BoxWidget> {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: 30.h,
                       ),
                       Row(
                         children: [
@@ -128,13 +129,13 @@ class _BoxWidgetState extends State<BoxWidget> {
                             Icons.watch_later,
                             color: isRedIcon ? Colors.red : Colors.green,
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 4.w,
                           ),
                           Text(
                             formatDuration(Duration(seconds: remainingSeconds)),
-                            style: const TextStyle(
-                              fontSize: 18.0,
+                            style: TextStyle(
+                              fontSize: 5.0.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.w600,
                             ),
@@ -148,12 +149,12 @@ class _BoxWidgetState extends State<BoxWidget> {
             ),
           )
         : Container(
-            width: 185,
-            height: 150,
+            width: 52.w,
+            height: 150.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               border: Border.all(
-                width: 10.0,
+                width: 3.w,
                 color: Colors.black26,
               ),
             ),

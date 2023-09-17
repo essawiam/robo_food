@@ -11,7 +11,6 @@ Future<void> init() async {
   sl.registerFactory(
     () => BoxBloc(boxRepo: sl()),
   );
-
   // repo
   sl.registerLazySingleton(() => BoxRepo(localDataSource: sl()));
   sl.registerLazySingleton(() => LocalDataSource());
