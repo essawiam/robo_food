@@ -14,7 +14,7 @@ class BoxBloc extends Bloc<BoxEvent, BoxState> {
   final BoxRepo boxRepo;
   BoxBloc({required this.boxRepo})
       : super(const BoxState(
-          boxSatus: BoxSatus.initial,
+          boxSatus: BoxStatus.initial,
           dishes: [],
           errorMessage: noError,
         )) {
@@ -22,19 +22,19 @@ class BoxBloc extends Bloc<BoxEvent, BoxState> {
   }
 
   FutureOr<void> _dishesFetched(DishesFetched event, Emitter<BoxState> emit) {
-    emit(state.copyWith(boxSatus: BoxSatus.loading));
+    emit(state.copyWith(boxSatus: BoxStatus.loading));
     final result = boxRepo.getDishes();
     if (result.error == null) {
       emit(
         state.copyWith(
-          boxSatus: BoxSatus.success,
+          boxSatus: BoxStatus.success,
           dishes: result.success,
           errorMessage: noError,
         ),
       );
     } else {
       emit(state.copyWith(
-        boxSatus: BoxSatus.failure,
+        boxSatus: BoxStatus.failure,
         dishes: null,
         errorMessage: result.error.toString(),
       ));

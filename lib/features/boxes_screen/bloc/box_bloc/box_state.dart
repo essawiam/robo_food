@@ -1,21 +1,21 @@
 part of 'box_bloc.dart';
 
-enum BoxSatus {
+enum BoxStatus {
   initial,
   loading,
   success,
   failure,
 }
 
-extension BoxSatusX on BoxSatus {
-  bool get isInitial => this == BoxSatus.initial;
-  bool get isLoading => this == BoxSatus.loading;
-  bool get isSuccess => this == BoxSatus.success;
-  bool get isFailure => this == BoxSatus.failure;
+extension BoxSatusX on BoxStatus {
+  bool get isInitial => this == BoxStatus.initial;
+  bool get isLoading => this == BoxStatus.loading;
+  bool get isSuccess => this == BoxStatus.success;
+  bool get isFailure => this == BoxStatus.failure;
 }
 
 class BoxState extends Equatable {
-  final BoxSatus boxSatus;
+  final BoxStatus boxSatus;
   final List<DishModel>? dishes;
   final String? errorMessage;
 
